@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -160,6 +160,281 @@
       projectCard.innerHTML = html;
       projectSection.appendChild(projectCard);
     });
+  </script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kushani Sakalasooriya | Portfolio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #6a1b9a;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    h2 {
+      color: #6a1b9a;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .project {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .project h3 {
+      margin-bottom: 0.3rem;
+    }
+
+    .project p {
+      margin-bottom: 0.3rem;
+    }
+
+    a {
+      color: #6a1b9a;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Slideshow Styles */
+    .slideshow-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      background: white;
+    }
+
+    .slideshow-slide {
+      display: none;
+      text-align: center;
+    }
+
+    .slideshow-slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .slideshow-caption {
+      padding: 1rem;
+      font-weight: bold;
+      color: #6a1b9a;
+      font-size: 1.2rem;
+    }
+
+    /* Navigation buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      padding: 0.5rem 1rem;
+      color: #6a1b9a;
+      font-weight: bold;
+      font-size: 1.5rem;
+      user-select: none;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.8);
+      transform: translateY(-50%);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .prev:hover, .next:hover {
+      background: rgba(106, 27, 154, 0.8);
+      color: white;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kushani Sakalasooriya</h1>
+    <p>Software Engineer @ D P Infotech Pvt Ltd | Full-Stack Developer</p>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>About Me</h2>
+      <p>
+        Software Engineer with a strong ability to work effectively both independently and in team environments. Proficient in .NET, C#, SQL, and the MERN stack. Flexible, highly organized, and an exceptional communicator passionate about building innovative and impactful software.
+      </p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <ul>
+        <li><strong>D P Infotech Pvt Ltd</strong> — Associate Software Engineer (Jan 2024 - Present)</li>
+        <li><strong>D P Infotech Pvt Ltd</strong> — Software Engineer Intern (Nov 2022 - Jan 2024)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <ul>
+        <li><strong>SLIIT</strong> — BSc (Hons) in Information Technology, Software Engineering (Feb 2020 - Present)</li>
+        <li><strong>Mahamaya Girls' College</strong> — Physical Sciences (2005 - 2018)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div id="project-section"></div>
+      <div id="project-slideshow" class="slideshow-container"></div>
+    </section>
+
+    <section>
+      <h2>Tech Stack</h2>
+      <p>.NET, C#, Java, JavaScript, React.js, Node.js, Express.js, MongoDB, SQL Server, MySQL, Spring Boot, Firebase</p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Email: kushanisakalasooriya@example.com</p>
+      <p>Location: Colombo, Sri Lanka</p>
+      <p>GitHub: <a href="https://github.com/kushanisakalasooriya" target="_blank">github.com/kushanisakalasooriya</a></p>
+    </section>
+  </div>
+
+  <script>
+    const projects = [
+      {
+        title: "Research Project Management Tool",
+        description: "MERN Stack Web App | React.js, Node.js, MongoDB",
+        frontend: "https://github.com/kushanisakalasooriya/Research-Management-System-FE",
+        backend: "https://github.com/kushanisakalasooriya/Research-Management-System-BE",
+        image: "https://via.placeholder.com/900x400?text=Research+Project+Management+Tool"
+      },
+      {
+        title: "HireMe - Mobile Job Finder App",
+        description: "Java Full Stack | Firebase | Android Studio",
+        image: "https://via.placeholder.com/900x400?text=HireMe+Mobile+Job+Finder+App"
+      },
+      {
+        title: "Evento365 - Event Management Web App",
+        description: "Java Full Stack | React.js, Spring Boot | MySQL",
+        image: "https://via.placeholder.com/900x400?text=Evento365+Event+Management+Web+App"
+      },
+      {
+        title: "City Bank - Online Banking System",
+        description: "Java Servlet | MySQL",
+        image: "https://via.placeholder.com/900x400?text=City+Bank+Online+Banking+System"
+      }
+    ];
+
+    // Display project cards
+    const projectSection = document.getElementById('project-section');
+
+    projects.forEach(project => {
+      const projectCard = document.createElement('div');
+      projectCard.className = 'project';
+
+      let html = `<h3>${project.title}</h3>
+                  <p>${project.description}</p>`;
+
+      if (project.frontend || project.backend) {
+        html += `<p>`;
+        if (project.frontend) {
+          html += `<a href="${project.frontend}" target="_blank">Frontend</a>`;
+        }
+        if (project.backend) {
+          html += ` | <a href="${project.backend}" target="_blank">Backend</a>`;
+        }
+        html += `</p>`;
+      }
+
+      projectCard.innerHTML = html;
+      projectSection.appendChild(projectCard);
+    });
+
+    // Build slideshow
+    const slideshowContainer = document.getElementById('project-slideshow');
+
+    projects.forEach((project, index) => {
+      const slide = document.createElement('div');
+      slide.className = 'slideshow-slide';
+
+      slide.innerHTML = `
+        <img src="${project.image}" alt="${project.title} Image" />
+        <div class="slideshow-caption">${project.title}</div>
+      `;
+
+      slideshowContainer.appendChild(slide);
+    });
+
+    let slideIndex = 0;
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slideshow-slide');
+      if (n >= slides.length) slideIndex = 0;
+      if (n < 0) slideIndex = slides.length - 1;
+
+      slides.forEach(slide => slide.style.display = 'none');
+      slides[slideIndex].style.display = 'block';
+    }
+
+    // Initial display
+    showSlide(slideIndex);
+
+    // Create navigation buttons
+    const prevBtn = document.createElement('a');
+    prevBtn.className = 'prev';
+    prevBtn.innerHTML = '&#10094;';
+    prevBtn.onclick = () => { showSlide(--slideIndex); };
+
+    const nextBtn = document.createElement('a');
+    nextBtn.className = 'next';
+    nextBtn.innerHTML = '&#10095;';
+    nextBtn.onclick = () => { showSlide(++slideIndex); };
+
+    slideshowContainer.appendChild(prevBtn);
+    slideshowContainer.appendChild(nextBtn);
   </script>
 </body>
 </html>
