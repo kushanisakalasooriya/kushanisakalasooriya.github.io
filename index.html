@@ -236,61 +236,91 @@
 
     /* Slideshow Styles */
     .slideshow-container {
-      max-width: 900px;
-      margin: 2rem auto;
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      background: white;
-    }
+  max-width: 900px;
+  margin: 2rem auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  background: white;
+  padding: 1rem;
+}
 
-    .slideshow-slide {
-      display: none;
-      text-align: center;
-    }
+.slideshow-slide {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
 
-    .slideshow-slide img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px 8px 0 0;
-    }
+.slide-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
 
-    .slideshow-caption {
-      padding: 1rem;
-      font-weight: bold;
-      color: #6a1b9a;
-      font-size: 1.2rem;
-    }
+.slide-content img {
+  width: 220px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  object-fit: cover;
+}
 
-    /* Navigation buttons */
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      padding: 0.5rem 1rem;
-      color: #6a1b9a;
-      font-weight: bold;
-      font-size: 1.5rem;
-      user-select: none;
-      border-radius: 3px;
-      background: rgba(255,255,255,0.8);
-      transform: translateY(-50%);
-      transition: background 0.3s, color 0.3s;
-    }
+.slide-text {
+  flex: 1;
+  min-width: 200px;
+}
 
-    .prev:hover, .next:hover {
-      background: rgba(106, 27, 154, 0.8);
-      color: white;
-    }
+.slide-text h3 {
+  margin: 0 0 0.5rem;
+  color: #6a1b9a;
+}
 
-    .prev {
-      left: 10px;
-    }
+.slide-text p {
+  margin: 0.3rem 0;
+  line-height: 1.5;
+}
 
-    .next {
-      right: 10px;
-    }
+.project-links a {
+  color: #6a1b9a;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+/* Navigation buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 0.5rem 1rem;
+    color: #6a1b9a;
+    font-weight: bold;
+    font-size: 1.5rem;
+    user-select: none;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.8);
+    transform: translateY(-50%);
+    transition: background 0.3s, color 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(106, 27, 154, 0.8);
+    color: white;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
   </style>
 </head>
 <body>
@@ -349,22 +379,22 @@
         description: "MERN Stack Web App | React.js, Node.js, MongoDB",
         frontend: "https://github.com/kushanisakalasooriya/Research-Management-System-FE",
         backend: "https://github.com/kushanisakalasooriya/Research-Management-System-BE",
-        image: "https://via.placeholder.com/900x400?text=Research+Project+Management+Tool"
+        image: "images/img1.png"
       },
       {
         title: "HireMe - Mobile Job Finder App",
         description: "Java Full Stack | Firebase | Android Studio",
-        image: "https://via.placeholder.com/900x400?text=HireMe+Mobile+Job+Finder+App"
+        image: "images/img1.png"
       },
       {
         title: "Evento365 - Event Management Web App",
         description: "Java Full Stack | React.js, Spring Boot | MySQL",
-        image: "https://via.placeholder.com/900x400?text=Evento365+Event+Management+Web+App"
+        image: "images/img1.png"
       },
       {
         title: "City Bank - Online Banking System",
         description: "Java Servlet | MySQL",
-        image: "https://via.placeholder.com/900x400?text=City+Bank+Online+Banking+System"
+        image: "images/img1.png"
       }
     ];
 
@@ -401,9 +431,21 @@
       slide.className = 'slideshow-slide';
 
       slide.innerHTML = `
-        <img src="${project.image}" alt="${project.title} Image" />
-        <div class="slideshow-caption">${project.title}</div>
-      `;
+            <div class="slide-content">
+                <img src="${project.image}" alt="${project.title} Image" />
+                <div class="slide-text">
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                ${project.frontend || project.backend ? `<p class="project-links">
+                    ${project.frontend ? `<a href="${project.frontend}" target="_blank">Frontend</a>` : ""}
+                    ${project.frontend && project.backend ? " | " : ""}
+                    ${project.backend ? `<a href="${project.backend}" target="_blank">Backend</a>` : ""}
+                </p>` : ""}
+                </div>
+            </div>
+            `;
+
+
 
       slideshowContainer.appendChild(slide);
     });
